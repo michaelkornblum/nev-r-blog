@@ -14,23 +14,19 @@ module.exports = () =>
         {
           width: 1920,
           suffix: '-lg',
-          overwrite: true,
         },
         {
           width: 960,
           suffix: '-med',
-          overwrite: true,
         },
         {
           width: 480,
           suffix: '-sm',
-          overwrite: true,
         },
         {
           width: 480,
           suffix: '-lofi',
-          quality: 20,
-          overwrite: true,
+          quality: 1,
         },
       ],
     }))
