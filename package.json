@@ -1,0 +1,27 @@
+{
+  "name": "big-build",
+  "version": "1.0.0",
+  "description": "a static site generation system that uses gulp 4.0, metalsmith, webpack and associated technologies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelkornblum/big-build.git"
+  },
+  "keywords": [
+    "gulp",
+    "metalsmith",
+    "webpack",
+    "static",
+    "site",
+    "generator"
+  ],
+  "author": "Michael Kornblum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelkornblum/big-build/issues"
+  },
+  "homepage": "https://github.com/michaelkornblum/big-build#readme"
+}
