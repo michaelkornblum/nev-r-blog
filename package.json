@@ -30,6 +30,9 @@
     "eslint-plugin-import": "^2.11.0"
   },
   "dependencies": {
-    "gulp": "github:gulpjs/gulp#4.0"
+    "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-responsive-images": "0.0.3",
+    "gulp-smushit": "^1.2.0"
   }
 }
