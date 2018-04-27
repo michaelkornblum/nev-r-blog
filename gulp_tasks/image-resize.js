@@ -1,4 +1,4 @@
-import { src, dest } from 'gulp';
+const { src, dest } = require('gulp');
 
 const {
   plumber,
