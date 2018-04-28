@@ -1,6 +1,6 @@
 const { src, dest } = require('gulp');
-const config = require('../configs/gulp.config').imageCompress;
 const { plumber, smushit } = require('gulp-load-plugins')();
+const config = require('../configs/gulp.config').imageCompress;
 
 module.exports = () =>
   src(config.src)
