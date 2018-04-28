@@ -1,30 +1,19 @@
+const { getSizes } = require('../functions/gulp-functions');
+
 exports.imageResize = {
   src: 'images/resize/**/*',
   dest: 'build/images',
   responsiveImages: {
-    '*.jpg': [
-      {
-        width: 1920,
-        suffix: '-lg',
-      },
-      {
-        width: 960,
-        suffix: '-med',
-      },
-      {
-        width: 480,
-        suffix: '-sm',
-      },
-      {
-        width: 480,
-        suffix: '-lofi',
-        quality: 25,
-      },
-      {
-        quality: 100,
-      },
-    ],
+    '*.jpg': getSizes(480, 960, 1920),
   },
+  smushit: {
+    verbose: true,
+  },
+};
+
+exports.imageCompress = {
+  src: 'images/cropped/**/*',
+  dest: 'build/images',
   smushit: {
     verbose: true,
   },
