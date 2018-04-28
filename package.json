@@ -30,10 +30,16 @@
     "eslint-plugin-import": "^2.11.0"
   },
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "^1.2.0",
     "gulp-responsive-images": "0.0.3",
-    "gulp-smushit": "^1.2.0"
+    "gulp-smushit": "^1.2.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.6.0",
+    "webpack-stream": "^4.0.3"
   }
 }
