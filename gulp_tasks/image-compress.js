@@ -13,7 +13,10 @@ module.exports = () =>
       '*.jpg': [
         {
           suffix: '-lofi',
-          quality: 1,
+          quality: 25,
+        },
+        {
+          quality: 100,
         },
       ],
     }))

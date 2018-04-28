@@ -26,7 +26,10 @@ module.exports = () =>
         {
           width: 480,
           suffix: '-lofi',
-          quality: 1,
+          quality: 25,
+        },
+        {
+          quality: 100,
         },
       ],
     }))
