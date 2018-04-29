@@ -1,4 +1,5 @@
-const { getSizes } = require('../functions/gulp-functions');
+const { getSizes } = require('../functions');
+const webpackConfig = require('./webpack.config');
 
 exports.imageResize = {
   src: 'images/resize/**/*',
@@ -17,4 +18,10 @@ exports.imageCompress = {
   smushit: {
     verbose: true,
   },
+};
+
+exports.javascriptBundle = {
+  src: 'scripts/main.js',
+  dest: 'build/scripts',
+  webpackStream: webpackConfig,
 };
