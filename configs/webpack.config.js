@@ -1,18 +1,16 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
+  mode: 'production',
   output: {
     filename: '[name].js',
   },
-  devtool: 'source-map',
   plugins: [
     new UglifyJsPlugin(),
   ],
-  loaders: [
-    {
-      test: /\.js$/,
-      exclude: '/node_modules/',
-      loader: 'babel-loader',
-    },
-  ],
+  module: {
+    rules: [
+      { test: /\.js$/, use: 'babel-loader' },
+    ],
+  },
 };
