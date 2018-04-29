@@ -1,5 +1,3 @@
-const { task } = require('gulp');
-
-task('image:resize', require('./image-resize'));
-task('image:compress', require('./image-compress'));
-
+exports.imageResize = require('./image-resize');
+exports.imageCompress = require('./image-compress');
+exports.javascriptBundle = require('./javascript-bundle');
