@@ -28,7 +28,7 @@ exports.javascriptBundle = {
 };
 
 exports.stylusCompile = {
-  src: 'stylus/main.styl',
+  src: 'styles/main.styl',
   dest: 'build/styles',
   stylus: stylusConfig,
 };
