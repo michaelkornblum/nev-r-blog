@@ -1,5 +1,6 @@
 const { getSizes } = require('../functions');
 const webpackConfig = require('./webpack.config');
+const stylusConfig = require('./stylus.config');
 
 exports.imageResize = {
   src: 'images/resize/**/*',
@@ -24,4 +25,10 @@ exports.javascriptBundle = {
   src: 'scripts/main.js',
   dest: 'build/scripts',
   webpackStream: webpackConfig,
+};
+
+exports.stylusCompile = {
+  src: 'stylus/main.styl',
+  dest: 'build/styles',
+  stylus: stylusConfig,
 };
