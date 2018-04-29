@@ -1,12 +1,14 @@
 const { src, dest } = require('gulp');
 const plumber = require('gulp-plumber');
+const vinylNamed = require('vinyl-named');
 const webpackStream = require('webpack-stream');
 const webpack = require('webpack');
-const webpackConfig = require('../configs/webpack.config.js');
+const config = require('../configs/gulp.config').javascriptBundle;
 
 module.exports = () =>
-  src('srcipts/**.js')
+  src(config.src)
     .pipe(plumber())
-    .pipe(webpackStream(webpackConfig, webpack))
-    .pipe(dest('build/scripts'));
+    .pipe(vinylNamed())
+    .pipe(webpackStream(config.webpackStream, webpack))
+    .pipe(dest(config.dest));
 
