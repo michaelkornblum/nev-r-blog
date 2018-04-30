@@ -38,6 +38,7 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "^1.2.0",
+    "gulp-pug": "^4.0.1",
     "gulp-responsive-images": "0.0.3",
     "gulp-smushit": "^1.2.0",
     "gulp-stylus": "^2.7.0",
