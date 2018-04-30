@@ -1,10 +1,8 @@
-const typographic = require('typographic');
 const rupture = require('rupture');
 const postStylus = require('poststylus');
 const rucksack = require('rucksack-css');
 const lost = require('lost');
-const autoprefixer = require('autoprefixer');
-const csswring = require('csswring');
+const typographic = require('typographic');
 
 module.exports = {
   use: [
@@ -13,8 +11,6 @@ module.exports = {
     postStylus([
       rucksack,
       lost,
-      autoprefixer({ browsers: 'last 2 versions' }),
-      csswring,
     ]),
   ],
 };
