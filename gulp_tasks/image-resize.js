@@ -1,9 +1,5 @@
 const { src, dest } = require('gulp');
-const {
-  plumber,
-  responsiveImages,
-  smushit,
-} = require('gulp-load-plugins')();
+const { plumber, responsiveImages, smushit } = require('gulp-load-plugins')();
 const config = require('../configs/gulp.config').imageResize;
 
 module.exports = () =>
