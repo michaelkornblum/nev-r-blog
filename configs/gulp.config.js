@@ -1,6 +1,7 @@
 const { getSizes } = require('../functions/gulp-functions');
 const webpackConfig = require('./webpack.config');
 const stylusConfig = require('./stylus.config');
+const postcssConfig = require('../configs/postcss.config');
 const site = require('../configs/site.config');
 
 exports.imageResize = {
@@ -32,6 +33,7 @@ exports.stylusCompile = {
   src: 'styles/main.styl',
   dest: 'build/styles',
   stylus: stylusConfig,
+  postcss: postcssConfig,
 };
 
 exports.pugCompile = {
@@ -39,5 +41,6 @@ exports.pugCompile = {
   dest: 'build',
   pug: {
     locals: site,
-  }
+    pretty: true,
+  },
 };
