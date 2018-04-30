@@ -1,4 +1,25 @@
-- const { siteTitle, siteAuthor, siteDescription }  = locals
+- const { siteTitle, siteAuthor, siteDescription, setTitle } = locals;
 
-h1= getTitle(siteTitle, 'hello world!')
-h2= getPageProp(siteAuthor, 'Roosevelt the Cat')
+block variables 
+  - const pageTitle = 'Hello, World!';
+  - const pageAuthor = 'Roosevelt the Cat';
+  - const pageDescription = 'This is a test';
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title= pageTitle ? setTitle(siteTitle, pageTitle) : siteTitle
+    meta(title="author" content= pageAuthor || siteAuthor)
+    meta(title="description" content= pageDescription || siteDescription)
+    link(rel="stylesheet" href="styles/main.css")
+    meta(title="viewport" content="width=device-width, initial-scale=1")
+  body
+    header
+      h1= pageTitle ? pageTitle : siteTitle
+    main
+      block contents
+        p this is a test
+        p had this been an emergency, I would have panicked.
+        p you probably would have panicked too.
+    
