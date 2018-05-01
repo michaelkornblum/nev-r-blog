@@ -5,6 +5,7 @@ const {
   javascriptBundle,
   stylusCompile,
   pugCompile,
+  cssInline,
 } = require('./gulp_tasks');
 
 // base tasks
@@ -13,6 +14,7 @@ task('image:compress', imageCompress);
 task('js:bundle', javascriptBundle);
 task('stylus:compile', stylusCompile);
 task('pug:compile', pugCompile);
+task('css:inline', cssInline);
 
 
 task('images', series('image:resize', 'image:compress'));

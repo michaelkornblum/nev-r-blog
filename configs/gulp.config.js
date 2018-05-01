@@ -5,7 +5,7 @@ const postcssConfig = require('../configs/postcss.config');
 const site = require('../configs/site.config');
 
 exports.imageResize = {
-  src: 'images/resize/**/*',
+  src: 'images/resize/*',
   dest: 'build/images',
   responsiveImages: {
     '*.jpg': getSizes(480, 960, 1920),
@@ -16,7 +16,7 @@ exports.imageResize = {
 };
 
 exports.imageCompress = {
-  src: 'images/cropped/**/*',
+  src: 'images/cropped/*',
   dest: 'build/images',
   smushit: {
     verbose: true,
@@ -42,5 +42,17 @@ exports.pugCompile = {
   pug: {
     locals: site,
     pretty: true,
+  },
+};
+
+exports.criticalCSS = {
+  src: 'build/**/*html',
+  dest: 'build',
+  critical: {
+    base: 'build/',
+    inline: true,
+    css: [
+      'build/styles/main.css',
+    ],
   },
 };
