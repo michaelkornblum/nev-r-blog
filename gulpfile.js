@@ -18,4 +18,4 @@ task('css:inline', cssInline);
 
 
 task('images', series('image:resize', 'image:compress'));
-
+task('build', series('images', 'stylus:compile', 'pug:compile', 'css:inline'));
