@@ -1,9 +1,8 @@
 - const { siteTitle, siteAuthor, siteDescription, setTitle } = locals;
 
 block variables 
-  - const pageTitle = 'Hello, World!';
-  - const pageAuthor = 'Roosevelt the Cat';
-  - const pageDescription = 'This is a test';
+  - const pageTitle = 'Welcome to the Big Build';
+  - const pageDescription = 'introducing big build';
 
 doctype html
 html(lang="en")
@@ -15,11 +14,25 @@ html(lang="en")
     link(rel="stylesheet" href="styles/main.css")
     meta(title="viewport" content="width=device-width, initial-scale=1")
   body
-    header
-      h1= pageTitle ? pageTitle : siteTitle
-    main
-      block contents
-        p this is a test
-        p had this been an emergency, I would have panicked.
-        p you probably would have panicked too.
+    .container
+      header
+        h1= pageTitle ? pageTitle : siteTitle
+      article
+        block content
+          img(srcset="images/kittens_and_bunny-480.jpg 480w,images/kittens_and_bunny-960.jpg 960w, images/kittens_and_bunny-1920.jpg 1920w" 
+          sizes="(min-width: 36em) 33.3vw, 100vw" 
+          alt="kittens and bunnies"
+          )
+          p #[bold The Big Build] is a complete static site framework that uses Gulp, Webpack and Metalsmith.
+          section
+            header
+              h2 Built for Website Performance
+            p From the ground up, Big Build uses many of the best practices that lead to site optimization. HTML, CSS and JavaScript files are optimized by default. Additionally, Big Build supports lazy-loading, critical css, and inline imaging right out of the box.
+          section
+            header
+              h2 Want to learn more?
+              p Visit our #[a(href="https://github.com/michaelkornblum/big-build") github page] for details.
+
+
+        
     
