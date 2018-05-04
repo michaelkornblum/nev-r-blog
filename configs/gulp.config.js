@@ -58,3 +58,8 @@ exports.postcssCompile = {
   dest: 'build/styles/',
   postcss: postcssConfig,
 };
+
+exports.svgProcess = {
+  src: 'vectors/*.svg',
+  dest: 'layouts/templates/partials',
+};

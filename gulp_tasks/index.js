@@ -5,3 +5,6 @@ exports.stylusCompile = require('./stylus-compile');
 exports.pugCompile = require('./pug-compile');
 exports.cssInline = require('./css-inline');
 exports.postcssCompile = require('./postcss-compile');
+exports.svgProcess = require('./svg-process');
+exports.serverStart = require('./server').open;
+exports.serverRefresh = require('./server').refresh;

@@ -1,38 +1,9 @@
-- const { helpers, site } = locals;
-- const page = {};
+extends templates/default.pug
 
 block variables
-  - page.title = 'Welcome to the Big Build';
-  - page.description = 'introducing big build';
+  - page.title = 'Hello World'
+  - page.author = 'Michael Kornblum'
+  - page.description = 'a simple test'
 
-doctype html
-html(lang="en")
-  head
-    meta(charset="utf-8")
-    title= page.title ? helpers.setTitle(site.title, page.title) : site.title
-    meta(title="author" content=page.author || site.author)
-    meta(title="description" content= page.description || site.description)
-    link(rel="stylesheet" href=helpers.googleFonts('comfortaa', 'open sans'))
-    link(rel="stylesheet" href="styles/main.css")
-    meta(title="viewport" content="width=device-width, initial-scale=1")
-  body
-    .container
-      header
-        h1= page.title ? page.title : site.title
-      article
-        block content
-          img(srcset="images/kittens_and_bunny-480.jpg 480w,images/kittens_and_bunny-960.jpg 960w, images/kittens_and_bunny-1920.jpg 1920w" 
-          sizes="(min-width: 36em) 33.3vw, 100vw" 
-          alt="kittens and bunnies"
-          )
-          p #[bold The Big Build] is a complete static site framework that uses Gulp, Webpack and Metalsmith.
-          section
-            header
-              h2 Built for Website Performance
-            p From the ground up, Big Build uses many of the best practices that lead to site optimization. HTML, CSS and JavaScript files are optimized by default. Additionally, Big Build supports lazy-loading, critical css, and inline imaging right out of the box.
-          section
-            header
-              h2 Want to learn more?
-              p Visit our #[a(href="https://github.com/michaelkornblum/big-build") github page] for details.
-        
-    
+  block content
+    p is this working?
