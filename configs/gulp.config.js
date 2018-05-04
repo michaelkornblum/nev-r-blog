@@ -33,7 +33,6 @@ exports.stylusCompile = {
   src: 'styles/main.styl',
   dest: 'build/styles',
   stylus: stylusConfig,
-  postcss: postcssConfig,
 };
 
 exports.pugCompile = {
@@ -44,15 +43,18 @@ exports.pugCompile = {
   },
 };
 
-exports.criticalCSS = {
+exports.cssInline = {
   src: 'build/**/*html',
   dest: 'build',
   critical: {
     base: 'build/',
     inline: true,
-    // css: [
-    //   'build/styles/main.css',
-    // ],
     minify: true,
   },
+};
+
+exports.postcssCompile = {
+  src: 'build/styles/main.css',
+  dest: 'build/styles/',
+  postcss: postcssConfig,
 };
