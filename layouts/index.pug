@@ -1,22 +1,24 @@
-- const { siteTitle, siteAuthor, siteDescription, setTitle } = locals;
+- const { helpers, site } = locals;
+- const page = {};
 
-block variables 
-  - const pageTitle = 'Welcome to the Big Build';
-  - const pageDescription = 'introducing big build';
+block variables
+  - page.title = 'Welcome to the Big Build';
+  - page.description = 'introducing big build';
 
 doctype html
 html(lang="en")
   head
     meta(charset="utf-8")
-    title= pageTitle ? setTitle(siteTitle, pageTitle) : siteTitle
-    meta(title="author" content= pageAuthor || siteAuthor)
-    meta(title="description" content= pageDescription || siteDescription)
+    title= page.title ? helpers.setTitle(site.title, page.title) : site.title
+    meta(title="author" content=page.author || site.author)
+    meta(title="description" content= page.description || site.description)
+    link(rel="stylesheet" href=helpers.googleFonts('comfortaa', 'open sans'))
     link(rel="stylesheet" href="styles/main.css")
     meta(title="viewport" content="width=device-width, initial-scale=1")
   body
     .container
       header
-        h1= pageTitle ? pageTitle : siteTitle
+        h1= page.title ? page.title : site.title
       article
         block content
           img(srcset="images/kittens_and_bunny-480.jpg 480w,images/kittens_and_bunny-960.jpg 960w, images/kittens_and_bunny-1920.jpg 1920w" 
@@ -32,7 +34,5 @@ html(lang="en")
             header
               h2 Want to learn more?
               p Visit our #[a(href="https://github.com/michaelkornblum/big-build") github page] for details.
-
-
         
     

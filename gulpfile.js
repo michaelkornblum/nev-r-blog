@@ -19,4 +19,4 @@ task('pug:compile', pugCompile);
 task('css:inline', cssInline);
 
 task('images', series('image:resize', 'image:compress'));
-task('build', series('images', 'js:bundle', 'stylus:compile', 'pug:compile', 'css:inline'));
+task('build', series('pug:compile'));
