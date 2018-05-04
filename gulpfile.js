@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { task, series } = require('gulp');
 const {
   imageResize,
@@ -16,6 +18,5 @@ task('stylus:compile', stylusCompile);
 task('pug:compile', pugCompile);
 task('css:inline', cssInline);
 
-
 task('images', series('image:resize', 'image:compress'));
-task('build', series('images', 'stylus:compile', 'pug:compile', 'css:inline'));
+task('build', series('images', 'js:bundle', 'stylus:compile', 'pug:compile', 'css:inline'));

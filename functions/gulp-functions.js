@@ -3,6 +3,7 @@ exports.getSizes = function () {
     return {
       width: size,
       suffix: `-${size}`,
+      quality: 85,
     };
   });
 };

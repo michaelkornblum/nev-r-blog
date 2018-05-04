@@ -4,7 +4,8 @@
   "description": "a static site generation system that uses gulp 4.0, metalsmith, webpack and associated technologies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "NODE_ENV=production gulp build",
+    "serve": "NODE_ENV=development gulp serve"
   },
   "repository": {
     "type": "git",
@@ -36,8 +37,11 @@
     "babel-preset-env": "^1.6.1",
     "critical": "^1.2.2",
     "cssnano": "^3.10.0",
-    "fancy-log": "^1.3.2",
+    "dotenv": "^5.0.1",
     "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-if-env": "^0.1.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",

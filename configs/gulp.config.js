@@ -41,7 +41,6 @@ exports.pugCompile = {
   dest: 'build',
   pug: {
     locals: site,
-    pretty: true,
   },
 };
 
@@ -51,8 +50,9 @@ exports.criticalCSS = {
   critical: {
     base: 'build/',
     inline: true,
-    css: [
-      'build/styles/main.css',
-    ],
+    // css: [
+    //   'build/styles/main.css',
+    // ],
+    minify: true,
   },
 };

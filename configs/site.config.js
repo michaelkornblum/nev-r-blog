@@ -1,10 +1,15 @@
-const { setTitle, setProperty } = require('../functions/pug-functions');
+const { setTitle } = require('../functions/pug-functions');
 
 module.exports = {
-  siteTitle: 'Big Build',
-  siteDescription: 'a static site distribution',
-  siteAuthor: 'Michael Kornblum',
-  siteCss: 'styles/main.css',
-  setTitle,
-  setProperty,
+  site: {
+    title: 'Nev-r-Blog',
+    descripttion: 'a one stop static site solution',
+    author: 'Michael Kornblum',
+    mode: process.env.NODE_ENV,
+    stylesheet: '/styles/main.css',
+    stylesheetURL: undefined,
+  },
+  helpers: {
+    setTitle,
+  },
 };

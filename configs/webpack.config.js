@@ -1,7 +1,7 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  mode: 'production',
+  mode: process.env.NODE_ENV,
   output: {
     filename: '[name].js',
   },
