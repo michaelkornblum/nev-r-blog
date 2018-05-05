@@ -1,6 +1,12 @@
 require('dotenv').config();
 
-const { task, series } = require('gulp');
+const {
+  task,
+  series,
+  watch,
+  parallel,
+} = require('gulp');
+
 const {
   imageResize,
   imageCompress,
@@ -12,9 +18,12 @@ const {
   svgProcess,
   serverStart,
   serverRefresh,
+  clean,
 } = require('./gulp_tasks');
 
-// base tasks
+const config = require('./configs/gulp.config');
+
+// register base tasks
 task('image:resize', imageResize);
 task('image:compress', imageCompress);
 task('js:bundle', javascriptBundle);
@@ -25,6 +34,32 @@ task('postcss:compile', postcssCompile);
 task('svg:process', svgProcess);
 task('server:start', serverStart);
 task('server:refresh', serverRefresh);
+task('build:clean', clean);
 
-task('images', series('image:resize', 'image:compress'));
-task('build', series('pug:compile'));
+// file watchers for dev server
+const fileWatchers = () => {
+  watch(config.imageResize.watchDir, series('image:resize', 'server:refresh'));
+  watch(config.imageCompress.watchDir, series('image:compress', 'server:refresh'));
+  watch(config.javascriptBundle.watchDir, series('js:bundle', 'server:refresh'));
+  watch(config.pugCompile.watchDir, series('pug:compile', 'server:refresh'));
+  watch(config.stylusCompile.watchDir, series('stylus:compile', 'server:refresh'));
+  watch(config.svgProcess.watchDir, series('svg:process'));
+};
+
+// register watch task
+task('files:watch', fileWatchers);
+
+// register dev server task
+task('serve', series(
+  'build:clean',
+  parallel(
+    'image:resize',
+    'image:compress',
+    'js:bundle',
+    'stylus:compile',
+    'svg:process',
+  ),
+  'pug:compile',
+  'server:start',
+  'files:watch',
+));

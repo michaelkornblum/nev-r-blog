@@ -5,8 +5,9 @@ const postcssConfig = require('../configs/postcss.config');
 const siteConfig = require('../configs/site.config');
 
 exports.imageResize = {
-  src: 'images/resize/*',
+  src: 'images/resize/**/*',
   dest: 'build/images',
+  watchDir: 'images/resize/**/*',
   responsiveImages: {
     '*.jpg': getSizes(480, 960, 1920),
   },
@@ -16,8 +17,9 @@ exports.imageResize = {
 };
 
 exports.imageCompress = {
-  src: 'images/cropped/*',
+  src: 'images/cropped/**/*',
   dest: 'build/images',
+  watchDir: 'images/cropped/**/*',
   smushit: {
     verbose: true,
   },
@@ -26,18 +28,21 @@ exports.imageCompress = {
 exports.javascriptBundle = {
   src: 'scripts/main.js',
   dest: 'build/scripts',
+  watchDir: 'scripts/**/*.js',
   webpackStream: webpackConfig,
 };
 
 exports.stylusCompile = {
   src: 'styles/main.styl',
   dest: 'build/styles',
+  watchDir: 'styles/**/*.styl',
   stylus: stylusConfig,
 };
 
 exports.pugCompile = {
-  src: 'layouts/**/*.pug',
+  src: 'layouts/*.pug',
   dest: 'build',
+  watchDir: 'layouts/**/*',
   pug: {
     locals: siteConfig,
   },
@@ -62,4 +67,5 @@ exports.postcssCompile = {
 exports.svgProcess = {
   src: 'vectors/*.svg',
   dest: 'layouts/templates/partials',
+  watchDir: 'vectors/*.svg',
 };
