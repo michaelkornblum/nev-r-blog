@@ -1,8 +1,8 @@
 const { getSizes } = require('../functions/gulp-functions');
 const webpackConfig = require('./webpack.config');
 const stylusConfig = require('./stylus.config');
-const postcssConfig = require('../configs/postcss.config');
-const siteConfig = require('../configs/site.config');
+const postcssConfig = require('./postcss.config');
+const siteConfig = require('./site.config');
 
 exports.imageResize = {
   src: 'images/resize/**/*',
@@ -49,7 +49,7 @@ exports.pugCompile = {
 };
 
 exports.cssInline = {
-  src: 'build/**/*html',
+  src: 'build/**/index.html',
   dest: 'build',
   critical: {
     base: 'build/',
@@ -68,4 +68,12 @@ exports.svgProcess = {
   src: 'vectors/*.svg',
   dest: 'layouts/templates/partials',
   watchDir: 'vectors/*.svg',
+};
+
+exports.htmlCompress = {
+  src: 'build/**/*.html',
+  dest: 'build',
+  htmlmin: {
+    collapseWhitespace: true,
+  },
 };

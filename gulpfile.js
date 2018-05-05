@@ -19,6 +19,7 @@ const {
   serverStart,
   serverRefresh,
   clean,
+  htmlCompress,
 } = require('./gulp_tasks');
 
 const config = require('./configs/gulp.config');
@@ -34,6 +35,7 @@ task('postcss:compile', postcssCompile);
 task('svg:process', svgProcess);
 task('server:start', serverStart);
 task('server:refresh', serverRefresh);
+task('html:compress', htmlCompress);
 task('build:clean', clean);
 
 // file watchers for dev server
@@ -49,8 +51,8 @@ const fileWatchers = () => {
 // register watch task
 task('files:watch', fileWatchers);
 
-// register dev server task
-task('serve', series(
+// register composite task
+task('asset:prepare', series( 
   'build:clean',
   parallel(
     'image:resize',
@@ -60,6 +62,19 @@ task('serve', series(
     'svg:process',
   ),
   'pug:compile',
+));
+
+// register dev server task
+task('serve', series(
+  'asset:prepare',
   'server:start',
   'files:watch',
+));
+
+// register build task
+task('build', series(
+  'asset:prepare',
+  'css:inline',
+  'postcss:compile',
+  'html:compress',
 ));

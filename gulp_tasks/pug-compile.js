@@ -4,7 +4,6 @@ const {
   pug,
   ifEnv,
   htmlBeautify,
-  htmlmin,
 } = require('gulp-load-plugins')();
 const config = require('../configs/gulp.config').pugCompile;
 
@@ -13,5 +12,4 @@ module.exports = () =>
     .pipe(plumber())
     .pipe(pug(config.pug))
     .pipe(ifEnv('development', htmlBeautify()))
-    .pipe(ifEnv('production', htmlmin()))
     .pipe(dest(config.dest));
