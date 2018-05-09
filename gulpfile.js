@@ -74,7 +74,7 @@ task('serve', series(
 // register build task
 task('build', series(
   'asset:prepare',
-  'css:inline',
   'postcss:compile',
+  'css:inline',
   'html:compress',
 ));
