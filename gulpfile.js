@@ -39,20 +39,21 @@ task('html:compress', htmlCompress);
 task('build:clean', clean);
 
 // file watchers for dev server
-const fileWatchers = () => {
+const fileWatchers = (done) => {
   watch(config.imageResize.watchDir, series('image:resize', 'server:refresh'));
   watch(config.imageCompress.watchDir, series('image:compress', 'server:refresh'));
   watch(config.javascriptBundle.watchDir, series('js:bundle', 'server:refresh'));
   watch(config.pugCompile.watchDir, series('pug:compile', 'server:refresh'));
   watch(config.stylusCompile.watchDir, series('stylus:compile', 'server:refresh'));
   watch(config.svgProcess.watchDir, series('svg:process'));
+  done();
 };
 
 // register watch task
 task('files:watch', fileWatchers);
 
 // register composite task
-task('asset:prepare', series( 
+task('asset:prepare', series(
   'build:clean',
   parallel(
     'image:resize',
