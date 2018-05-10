@@ -65,10 +65,3 @@ exports.svgProcess = {
   watchDir: 'vectors/*.svg',
 };
 
-exports.htmlCompress = {
-  src: 'build/**/*.html',
-  dest: 'build',
-  htmlmin: {
-    collapseWhitespace: true,
-  },
-};

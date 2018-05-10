@@ -8,4 +8,3 @@ exports.svgProcess = require('./svg-process');
 exports.serverStart = require('./server').open;
 exports.serverRefresh = require('./server').refresh;
 exports.clean = require('./clean');
-exports.htmlCompress = require('./html-compress');

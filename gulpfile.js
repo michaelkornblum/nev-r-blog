@@ -18,7 +18,6 @@ const {
   serverStart,
   serverRefresh,
   clean,
-  htmlCompress,
 } = require('./gulp_tasks');
 
 const config = require('./configs/gulp.config');
@@ -44,7 +43,6 @@ task('css:inline', cssInline);
 task('svg:process', svgProcess);
 task('server:start', serverStart);
 task('server:refresh', serverRefresh);
-task('html:compress', htmlCompress);
 task('build:clean', clean);
 task('files:watch', fileWatchers);
 
@@ -72,5 +70,4 @@ task('serve', series(
 task('build', series(
   'asset:prepare',
   'css:inline',
-  'html:compress',
 ));
