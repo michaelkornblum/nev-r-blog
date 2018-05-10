@@ -6,7 +6,7 @@ const siteConfig = require('./site.config');
 
 exports.imageResize = {
   src: 'images/resize/**/*',
-  dest: 'build/images',
+  dest: 'build/images/resized',
   watchDir: 'images/resize/**/*',
   responsiveImages: {
     '*.jpg': getSizes(480, 960, 1920),
@@ -18,7 +18,7 @@ exports.imageResize = {
 
 exports.imageCompress = {
   src: 'images/cropped/**/*',
-  dest: 'build/images',
+  dest: 'build/images/cropped',
   watchDir: 'images/cropped/**/*',
   smushit: {
     verbose: true,
