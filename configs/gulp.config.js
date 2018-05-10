@@ -37,6 +37,7 @@ exports.stylusCompile = {
   dest: 'build/styles',
   watchDir: 'styles/**/*.styl',
   stylus: stylusConfig,
+  postcss: postcssConfig,
 };
 
 exports.pugCompile = {
@@ -56,12 +57,6 @@ exports.cssInline = {
     inline: true,
     minify: true,
   },
-};
-
-exports.postcssCompile = {
-  src: 'build/styles/main.css',
-  dest: 'build/styles/',
-  postcss: postcssConfig,
 };
 
 exports.svgProcess = {

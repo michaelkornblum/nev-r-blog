@@ -3,6 +3,7 @@ const postStylus = require('poststylus');
 const rucksack = require('rucksack-css');
 const lost = require('lost');
 const typographic = require('typographic');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   use: [
@@ -11,6 +12,9 @@ module.exports = {
     postStylus([
       rucksack,
       lost,
+      autoprefixer({
+        browsers: 'last 2 versions',
+      }),
     ]),
   ],
 };

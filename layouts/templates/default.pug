@@ -2,10 +2,10 @@
 - const page = {};
 
 block variables
-  - page.title = undefined
-  - page.author = undefined
-  - page.description = undefined
-  - page.date = undefined
+  - page.title = title
+  - page.author = author
+  - page.description = description
+  - page.date = date
   
 doctype html
 html(lang="en")
@@ -15,11 +15,12 @@ html(lang="en")
     meta(title="author" content=page.author || site.author)
     meta(title="description" content= page.description || site.description)
     link(rel="stylesheet" href=helpers.googleFonts('comfortaa', 'open sans'))
-    link(rel="stylesheet" href="styles/main.css")
+    link(rel="stylesheet" href="/styles/main.css")
     meta(title="viewport" content="width=device-width, initial-scale=1")
   body
     .container
       block content
+        
       
           
         

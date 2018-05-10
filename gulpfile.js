@@ -14,7 +14,6 @@ const {
   stylusCompile,
   pugCompile,
   cssInline,
-  postcssCompile,
   svgProcess,
   serverStart,
   serverRefresh,
@@ -24,6 +23,17 @@ const {
 
 const config = require('./configs/gulp.config');
 
+// file watchers for dev server
+const fileWatchers = (done) => {
+  watch(config.imageResize.watchDir, 'image:resize');
+  watch(config.imageCompress.watchDir, 'image:compress');
+  watch(config.javascriptBundle.watchDir, series('js:bundle', 'server:refresh'));
+  watch(config.pugCompile.watchDir, series('pug:compile', 'server:refresh'));
+  watch(config.stylusCompile.watchDir, series('stylus:compile', 'server:refresh'));
+  watch(config.svgProcess.watchDir, 'svg:process');
+  done();
+};
+
 // register base tasks
 task('image:resize', imageResize);
 task('image:compress', imageCompress);
@@ -31,38 +41,24 @@ task('js:bundle', javascriptBundle);
 task('stylus:compile', stylusCompile);
 task('pug:compile', pugCompile);
 task('css:inline', cssInline);
-task('postcss:compile', postcssCompile);
 task('svg:process', svgProcess);
 task('server:start', serverStart);
 task('server:refresh', serverRefresh);
 task('html:compress', htmlCompress);
 task('build:clean', clean);
-
-// file watchers for dev server
-const fileWatchers = (done) => {
-  watch(config.imageResize.watchDir, series('image:resize', 'server:refresh'));
-  watch(config.imageCompress.watchDir, series('image:compress', 'server:refresh'));
-  watch(config.javascriptBundle.watchDir, series('js:bundle', 'server:refresh'));
-  watch(config.pugCompile.watchDir, series('pug:compile', 'server:refresh'));
-  watch(config.stylusCompile.watchDir, series('stylus:compile', 'server:refresh'));
-  watch(config.svgProcess.watchDir, series('svg:process'));
-  done();
-};
-
-// register watch task
 task('files:watch', fileWatchers);
 
 // register composite task
 task('asset:prepare', series(
   'build:clean',
+  'svg:process',
+  'pug:compile',
   parallel(
     'image:resize',
     'image:compress',
     'js:bundle',
     'stylus:compile',
-    'svg:process',
   ),
-  'pug:compile',
 ));
 
 // register dev server task
@@ -75,7 +71,6 @@ task('serve', series(
 // register build task
 task('build', series(
   'asset:prepare',
-  'postcss:compile',
   'css:inline',
   'html:compress',
 ));
