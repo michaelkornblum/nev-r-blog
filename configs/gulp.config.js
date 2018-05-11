@@ -40,8 +40,8 @@ exports.stylusCompile = {
   postcss: postcssConfig,
 };
 
-exports.cssInline = {
-  src: 'build/**/index.html',
+exports.htmlPostprocess = {
+  src: 'build/**/*.html',
   dest: 'build',
   critical: {
     base: 'build/',

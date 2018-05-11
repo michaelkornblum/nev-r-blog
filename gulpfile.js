@@ -13,7 +13,7 @@ const {
   javascriptBundle,
   stylusCompile,
   metalsmithCompile,
-  cssInline,
+  htmlPostprocess,
   svgProcess,
   serverStart,
   serverRefresh,
@@ -38,7 +38,7 @@ task('image:resize', imageResize);
 task('image:compress', imageCompress);
 task('js:bundle', javascriptBundle);
 task('stylus:compile', stylusCompile);
-task('css:inline', cssInline);
+task('html:postprocess', htmlPostprocess);
 task('svg:process', svgProcess);
 task('server:start', serverStart);
 task('server:refresh', serverRefresh);
@@ -69,5 +69,5 @@ task('serve', series(
 // register build task
 task('build', series(
   'asset:prepare',
-  'css:inline',
+  'html:postprocess',
 ));
