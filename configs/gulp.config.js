@@ -46,7 +46,6 @@ exports.cssInline = {
   critical: {
     base: 'build/',
     inline: true,
-    minify: true,
   },
 };
 
