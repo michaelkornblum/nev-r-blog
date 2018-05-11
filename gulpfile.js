@@ -12,7 +12,7 @@ const {
   imageCompress,
   javascriptBundle,
   stylusCompile,
-  pugCompile,
+  metalsmithCompile,
   cssInline,
   svgProcess,
   serverStart,
@@ -24,12 +24,12 @@ const config = require('./configs/gulp.config');
 
 // file watchers for dev server
 const fileWatchers = (done) => {
-  watch(config.imageResize.watchDir, 'image:resize');
-  watch(config.imageCompress.watchDir, 'image:compress');
+  watch(config.imageResize.watchDir, series('image:resize'));
+  watch(config.imageCompress.watchDir, series('image:compress'));
   watch(config.javascriptBundle.watchDir, series('js:bundle', 'server:refresh'));
-  watch(config.pugCompile.watchDir, series('pug:compile', 'server:refresh'));
   watch(config.stylusCompile.watchDir, series('stylus:compile', 'server:refresh'));
-  watch(config.svgProcess.watchDir, 'svg:process');
+  watch(config.svgProcess.watchDir, series('svg:process'));
+  watch(config.metalsmithCompile.watchdir, series('metalsmith:compile', 'server:refresh'));
   done();
 };
 
@@ -38,19 +38,19 @@ task('image:resize', imageResize);
 task('image:compress', imageCompress);
 task('js:bundle', javascriptBundle);
 task('stylus:compile', stylusCompile);
-task('pug:compile', pugCompile);
 task('css:inline', cssInline);
 task('svg:process', svgProcess);
 task('server:start', serverStart);
 task('server:refresh', serverRefresh);
 task('build:clean', clean);
 task('files:watch', fileWatchers);
+task('metalsmith:compile', metalsmithCompile);
 
 // register composite task
 task('asset:prepare', series(
   'build:clean',
   'svg:process',
-  'pug:compile',
+  'metalsmith:compile',
   parallel(
     'image:resize',
     'image:compress',

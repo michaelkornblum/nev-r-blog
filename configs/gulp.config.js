@@ -1,8 +1,8 @@
 const { getSizes } = require('../functions/gulp-functions');
 const webpackConfig = require('./webpack.config');
 const stylusConfig = require('./stylus.config');
+const metalsmithConfig = require('./metalsmith.config');
 const postcssConfig = require('./postcss.config');
-const siteConfig = require('./site.config');
 
 exports.imageResize = {
   src: 'images/resize/**/*',
@@ -40,15 +40,6 @@ exports.stylusCompile = {
   postcss: postcssConfig,
 };
 
-exports.pugCompile = {
-  src: 'layouts/*.pug',
-  dest: 'build',
-  watchDir: 'layouts/**/*',
-  pug: {
-    locals: siteConfig,
-  },
-};
-
 exports.cssInline = {
   src: 'build/**/index.html',
   dest: 'build',
@@ -65,3 +56,12 @@ exports.svgProcess = {
   watchDir: 'vectors/*.svg',
 };
 
+exports.metalsmithCompile = {
+  src: 'src/**/*',
+  dest: 'build',
+  watchdir: [
+    'src/**/*',
+    'layouts/**/*',
+  ],
+  metalsmith: metalsmithConfig,
+};
