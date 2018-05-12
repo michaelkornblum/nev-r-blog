@@ -17,7 +17,7 @@ module.exports = {
   metadata: config,
   use: [
     markdown(),
-    domTransform(),
+    //domTransform(),
     excerpts(),
     metallic(),
     collections({
