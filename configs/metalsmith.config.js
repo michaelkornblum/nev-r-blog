@@ -8,7 +8,7 @@ const {
   tags,
   metallic,
   feed,
-  domTransform,
+  // domTransform,
 } = require('load-metalsmith-plugins')();
 
 const config = require('./site.config');
@@ -17,7 +17,7 @@ module.exports = {
   metadata: config,
   use: [
     markdown(),
-    //domTransform(),
+    // domTransform(),
     excerpts(),
     metallic(),
     collections({
@@ -34,14 +34,13 @@ module.exports = {
       'collections.posts': {
         perPage: 5,
         layout: 'archives.pug',
-        first: 'index.html',
+        // first: 'index.html',
         path: 'archives/:num/index.html',
         pageMetadata: {
           title: 'Archive',
         },
       },
     }),
-    feed({ collection: 'posts' }),
     tags({
       handle: 'tags',
       path: 'tags/:tag.html',
@@ -67,6 +66,9 @@ module.exports = {
     layouts({
       engine: 'pug',
       default: 'default.pug',
+    }),
+    feed({
+      collection: 'posts',
     }),
   ],
 };

@@ -11,3 +11,9 @@ const fontFormat = (arr) =>
 exports.googleFonts = function() {
   return `https://fonts.googleapis.com/css?family=${fontFormat([...arguments])}`;
 };
+
+exports.getYear = () => {
+  const today = new Date();
+  return today.getFullYear();
+};
+  

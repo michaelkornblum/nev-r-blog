@@ -1,8 +1,8 @@
-const { setTitle, googleFonts } = require('../functions/pug-functions');
+const { setTitle, googleFonts, getYear } = require('../functions/pug-functions');
 
 module.exports = {
   site: {
-    url: 'nev-r-blog',
+    url: 'nevrblog',
     title: 'Nev-r-Blog',
     description: 'a one stop static site solution',
     author: 'Michael Kornblum',
@@ -11,5 +11,6 @@ module.exports = {
   helpers: {
     setTitle,
     googleFonts,
+    getYear,
   },
 };
