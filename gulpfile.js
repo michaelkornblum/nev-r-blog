@@ -60,7 +60,7 @@ task('asset:prepare', series(
 ));
 
 // register dev server task
-task('serve', series(
+task('dev', series(
   'asset:prepare',
   'server:start',
   'files:watch',

@@ -1,7 +1,8 @@
 ---
 title: Hello World
 author: Michael Kornblum
-date: 2018-05-09
+layout: index.pug
+hero: images/resized/camera-map-photographs-163194.jpg
 ---
 
 So, is this working?

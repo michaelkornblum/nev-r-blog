@@ -3,13 +3,15 @@ const webpackConfig = require('./webpack.config');
 const stylusConfig = require('./stylus.config');
 const metalsmithConfig = require('./metalsmith.config');
 const postcssConfig = require('./postcss.config');
+const { breakpoints } = require('./site.config').site;
 
 exports.imageResize = {
   src: 'images/resize/**/*',
   dest: 'build/images/resized',
   watchDir: 'images/resize/**/*',
   responsiveImages: {
-    '*.jpg': getSizes(480, 960, 1920),
+    '*.jpg': getSizes(breakpoints),
+    '*.jpeg': getSizes(breakpoints),
   },
   smushit: {
     verbose: true,
