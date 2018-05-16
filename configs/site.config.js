@@ -2,6 +2,7 @@ const {
   setTitle,
   googleFonts,
   getYear,
+  cssBackgroundImage,
 } = require('../functions/pug-functions');
 
 module.exports = {
@@ -23,5 +24,6 @@ module.exports = {
     setTitle,
     googleFonts,
     getYear,
+    cssBackgroundImage,
   },
 };

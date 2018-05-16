@@ -20,3 +20,22 @@ exports.getYear = () => {
   const today = new Date();
   return today.getFullYear();
 };
+
+// used for responsive background images
+exports.cssBackgroundImage = (className, path, ext, sizes) => {
+  let css = `${className} {
+    `;
+  sizes.forEach((size, index) => {
+    if(index === 0) {
+      css += `background-image: url('${path}-${size}px${ext}');
+      }`;
+    } else {
+      css += `@media screen and (min-width: ${size}px) {
+        ${className} {
+          background-image: url('${path}-${size}px${ext}');
+        }
+      }`;
+    }
+  });
+  return css;
+};

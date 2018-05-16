@@ -5,12 +5,15 @@ block variables
   - page.author = author
   - page.description = description
   - page.date = date
-  - page.hero = hero
-
+  - page.heroImagePath = heroImagePath
+  - page.heroImageExt = heroImageExt
+  
 doctype html
 html
   include partials/head.pug
   body.container
     include partials/header.pug
+    .hero-area
     block content
+    p=page.heroImage
     include partials/footer.pug
