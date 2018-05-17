@@ -3,6 +3,7 @@ const {
   googleFonts,
   getYear,
   cssBackgroundImage,
+  getImageSize,
 } = require('../functions/pug-functions');
 
 module.exports = {
@@ -25,5 +26,6 @@ module.exports = {
     googleFonts,
     getYear,
     cssBackgroundImage,
+    getImageSize,
   },
 };

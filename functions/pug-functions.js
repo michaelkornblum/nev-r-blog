@@ -39,3 +39,6 @@ exports.cssBackgroundImage = (className, path, ext, sizes) => {
   });
   return css;
 };
+
+exports.getImageSize = (path, size, ext) =>
+  `${path}-${size}px${ext}`;

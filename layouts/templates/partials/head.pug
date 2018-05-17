@@ -1,17 +1,9 @@
-include ../mixins/backgroundImagePreload.pug
-
 head
     meta(charset="utf-8")
     title= page.title ? helpers.setTitle(site.title, page.title) : site.title
     meta(name="author" content=page.author || site.author)
     meta(name="description" content= page.description || site.description)
-    - let i = 0
-    for size in site.breakpoints
-        if i !== site.breakpoints.length - 1
-            link(rel="preload" href=`${page.heroImagePath}-${size}px${page.heroImageExt}` as="image" media=`(max-width: ${site.breakpoints[i + 1] - 1}px))`)
-        else
-            link(rel="preload" href=`${page.heroImagePath}-${size}px${page.heroImageExt}` as="image" media=`(min-width: ${size}px))`)
-        - i++
+    include imagePreloads.pug
     link(rel="stylesheet" href=helpers.googleFonts('comfortaa', 'open sans'))
     link(rel="stylesheet" href=site.stylesheet)
     meta(name="viewport" content="width=device-width, initial-scale=1")

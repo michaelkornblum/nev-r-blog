@@ -1,0 +1,9 @@
+include ../mixins/imagePreload.pug
+
+- let i = 0
+    for size in site.breakpoints
+        if i !== site.breakpoints.length - 1
+            +imagePreload(href=helpers.getImageSize(page.heroImagePath, size, page.heroImageExt) media=`(max-width: ${site.breakpoints[i + 1] - 1}px)`)
+        else
+            +imagePreload(href=helpers.getImageSize(page.heroImagePath, size, page.heroImageExt), media=`(min-width: ${size}px)`)
+        - i++
