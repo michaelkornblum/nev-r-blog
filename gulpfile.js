@@ -24,8 +24,8 @@ const config = require('./configs/gulp.config');
 
 // file watchers for dev server
 const fileWatchers = (done) => {
-  watch(config.imageResize.watchDir, series('image:resize'));
-  watch(config.imageCompress.watchDir, series('image:compress'));
+  watch(config.imageResize.watchDir, series('image:resize', 'server:refresh'));
+  watch(config.imageCompress.watchDir, series('image:compress', 'server:refresh'));
   watch(config.javascriptBundle.watchDir, series('js:bundle', 'server:refresh'));
   watch(config.stylusCompile.watchDir, series('stylus:compile', 'server:refresh'));
   watch(config.svgProcess.watchDir, series('svg:process'));
